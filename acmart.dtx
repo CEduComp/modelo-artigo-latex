@@ -5751,7 +5751,7 @@
     acmcopyright,acmlicensed,rightsretained,%
     usgov,usgovmixed,cagov,cagovmixed,licensedusgovmixed,%
     licensedcagov,licensedcagovmixed,othergov,licensedothergov,%
-    iw3c2w3,iw3c2w3g,cc}{%
+    iw3c2w3,iw3c2w3g,cc,sbcen,sbcpt}{%
   \@printpermissiontrue
   \@printcopyrighttrue
   \@acmownedtrue
@@ -5797,7 +5797,20 @@
   \fi
   \ifnum\acm@copyrightmode=15\relax % cc
    \@acmownedfalse
-  \fi}
+  \fi
+  \ifnum\acm@copyrightmode=16\relax % sbcen **EduComp edition**
+   \@acmownedfalse
+   \AtBeginDocument{\acmDOI{}}
+   \AtBeginDocument{\acmISBN{}}
+   \AtBeginDocument{\settopmatter{printacmref=false}}
+  \fi
+  \ifnum\acm@copyrightmode=17\relax % sbcpt **EduComp edition**
+   \@acmownedfalse
+   \AtBeginDocument{\acmDOI{}}
+   \AtBeginDocument{\acmISBN{}}
+   \AtBeginDocument{\settopmatter{printacmref=false}}
+  \fi
+}
 %    \end{macrocode}
 %
 % \begin{macro}{\setcopyright}
@@ -5835,7 +5848,7 @@
   ACM\@.
   \or % acmlicensed
   Copyright held by the owner/author(s). Publication rights licensed to
-  ACM\@.
+  the Brazilian Computer Society (SBC)\@.
   \or % rightsretained
   Copyright held by the owner/author(s).
   \or % usgov
@@ -5847,17 +5860,17 @@
   Copyright held by the owner/author(s).
   \or %licensedusgovmixed
   Copyright held by the owner/author(s). Publication rights licensed to
-  ACM\@.
+  the Brazilian Computer Society (SBC)\@.
   \or % licensedcagov
   Copyright held by the owner/author(s). 
   \or %licensedcagovmixed
   Copyright held by the owner/author(s). Publication rights licensed to
-  ACM\@.
+  the Brazilian Computer Society (SBC)\@.
   \or % othergov
   Copyright held by the owner/author(s). 
   \or % licensedothergov
   Copyright held by the owner/author(s). Publication rights licensed to
-  ACM\@.
+  the Brazilian Computer Society (SBC)\@.
   \or % ic2w3www
   IW3C2 (International World Wide Web Conference Committee), published
   under Creative Commons CC-BY~4.0 License.
@@ -5866,6 +5879,12 @@
   under Creative Commons CC-BY-NC-ND~4.0 License.
   \or % cc
   Copyright held by the owner/author(s).
+  \or % SBC (English)
+  Copyright held by the owner/author(s). Publication rights licensed to
+  the Brazilian Computer Society (SBC)\@.
+  \or % SBC (Portuguese)
+  Copyright mantido pelo(s) autor(es). Direitos de publicação licenciados
+  à Sociedade Brasileira de Computação (SBC)\@.
   \fi}
 %    \end{macrocode}
 %
@@ -5927,11 +5946,11 @@
    that copies are not made or distributed for profit or commercial
    advantage and that copies bear this notice and the full citation on
    the first page. Copyrights for components of this work owned by
-   others than ACM must be honored. Abstracting with credit is
+   others than SBC must be honored. Abstracting with credit is
    permitted. To copy otherwise, or republish, to post on servers or
    to redistribute to lists, requires prior specific permission
    and\hspace*{.5pt}/or 
-   a fee. Request permissions from permissions@acm.org.
+   a fee. Request permissions from publicacoes@sbc.org.br.
   \or % acmlicensed
    Permission to make digital or hard copies of all or part of this
    work for personal or classroom use is granted without fee provided
@@ -5942,7 +5961,7 @@
    is permitted. To copy otherwise, or republish, to post on servers
    or to redistribute to lists, requires prior specific permission
    and\hspace*{.5pt}/or a fee. Request permissions from
-   permissions@acm.org. 
+   publicacoes@sbc.org.br. 
   \or % rightsretained
    Permission to make digital or hard copies of part or all of this
    work for personal or classroom use is granted without fee provided
@@ -6064,6 +6083,10 @@
      ~\IfEq{\ACM@cc@version}{4.0}{4.0 International}{3.0 Unported}%
    }
    License.}%
+ \or % sbcen **EduComp edition**
+    The author(s) or third-parties are allowed to reproduce or distribute, in part or in whole, the material extracted from this work, in textual form, adapted or remixed, as well as the creation or production based on its content, for non-commercial purposes, since the proper credit is provided to the original creation, under CC BY-NC~4.0 License.
+ \or % sbcpt **EduComp edition**
+    Fica permitido ao(s) autor(es) ou a terceiros a reprodução ou distribuição, em parte ou no todo, do material extraído dessa obra, de forma verbatim, adaptada ou remixada, bem como a criação ou produção a partir do conteúdo dessa obra, para fins não comerciais, desde que sejam atribuídos os devidos créditos à criação original, sob os termos da licença CC BY-NC~4.0. 
  \fi}
 %    \end{macrocode}
 %
@@ -6340,7 +6363,7 @@
               ACM~\@permissionCodeOne/\@acmYear/\@acmMonth-ART\@acmArticle\\
               \@formatdoi{\@acmDOI}%
             \else % Conference
-              \ifx\@acmISBN\@empty\else ACM~ISBN~\@acmISBN\\\fi
+              \ifx\@acmISBN\@empty\else SBC~ISBN~\@acmISBN\\\fi
               \ifx\@acmDOI\@empty\else\@formatdoi{\@acmDOI}\fi%
             \fi
           \fi
@@ -7412,7 +7435,7 @@
       \string\titlenote{} or \string\authornote{} instead!}}%
   \def\@article@string{\ifx\@acmArticle\@empty{\ }\else,
     Article~\@acmArticle\ \fi}%
-  \par\medskip\small\noindent{\bfseries ACM Reference Format:}\par\nobreak
+  \par\medskip\small\noindent{\bfseries SBC Reference Format:}\par\nobreak
   \noindent\bgroup
     \def\\{\unskip{}, \ignorespaces}\authors\egroup. \@acmYear. \@title
   \ifx\@subtitle\@empty. \else: \@subtitle. \fi
@@ -7430,7 +7453,7 @@
        \ifx\@acmEditors\@empty\textit{.}\else
          \andify\@acmEditors\textit{, }\@acmEditors~\@editorsAbbrev.%
        \fi\
-       ACM, New York, NY, USA%
+       SBC, Porto Alegre, RS, Brazil%
          \@article@string\unskip, \ref{TotPages}~\@pages@word.
     \fi
   \fi

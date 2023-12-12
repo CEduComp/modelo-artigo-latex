@@ -541,7 +541,6 @@ FUNCTION { format.day.month.year }     % UTAH
       if$
     }
   if$
-  " (" * format.day.month * format.year * ")" *
 }
 
 FUNCTION { output.day.month.year }     % UTAH
