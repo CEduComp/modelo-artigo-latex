@@ -1,6 +1,7 @@
 acmart.cls
 acmart.pdf
 acmguide.pdf
+educomp.cls
 samples/sample-*.pdf
 *.log
 *.aux
@@ -28,7 +29,14 @@ samples/sample-*.pdf
 *.bcf
 *.run.xml
 samples/ACM-Reference-Format.bst
-samples/*.tex
+samples/sample-lualatex*.tex
+samples/sample-xelatex*.tex
+samples/sample-lualatex*.tex
+samples/sample-sigconf*.tex
+samples/sample-acm*.tex
+samples/sample-authordraft.tex
+samples/sample-manuscript.tex
+samples/sample-sigplan.tex
 samples/*.bbx
 samples/*.cbx
 samples/*.dbx

@@ -1,0 +1,107 @@
+%% Essa classe foi adaptada do formato de conferências da ACM
+\documentclass[sigconf]{educomp}
+
+%Na versão final remover as tags review e anonymous
+%\documentclass[sigconf]{educomp}
+
+\renewcommand\refname{Referências}
+
+%%% REMOVER ESSE PACOTE PARA A VERSAO FINAL %%%%%%%%%%%%%%%%%
+\usepackage{lipsum}
+
+%% Não altere essas informações. Elas serão enviadas aos autores após ao aceite no ato da publicação dos anais.
+
+\copyrightyear{2024}
+\acmYear{2024}
+\setcopyright{sbcpt} %%% Para artigos escritos em inglês, troque para sbcen
+\acmConference[EduComp'24]{Simpósio Brasileiro de Educação em Computação}{Abril 22-27, 2024}{São Paulo, São Paulo, Brasil (On-line)}
+\acmBooktitle{Simpósio Brasileiro de Educação em Computação (EduComp '24), Abril 22-27, 2024, São Paulo, São Paulo, Brasil (On-line)}
+
+%%% REMOVER A PRÓXIMA LINHA PARA ARTIGOS ESCRITOS EM INGLÊS
+\usepackage[brazil]{babel}
+
+%%%%%%%%%%
+\begin{document}
+
+%%% TITULO
+\title[Título curto, caso necessário]{Um Template Para o EduComp 2024}
+
+
+%Autores
+\author{Ringo Star, John Lennon, Paul McCarthney, George Harrison}
+\email{{ringo, john, paul, george}@apple.co.uk}
+\affiliation{%
+  \institution{The Fab Four, Manchester, UK}
+  \country{Brasil}
+}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{}
+
+\newcommand{\showDOI}[1]{\unskip}
+
+
+%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+Crie um parágrafo resumindo seu trabalho (até 1.000 caracteres, incluindo espaços). O resumo de um trabalho é importante para chamar a atenção do leitor para o que será encontrado no texto. O artigo deve ser escrito em português ou inglês. No caso da escrita em português, este \textit{template} já está configurado adequadamente. No caso da escrita em inglês, os títulos das seções e legendas de figuras e tabelas devem ser traduzidos (para utilizar o \textit{template} em LaTeX, basta seguir as instruções que estão comentadas no próprio \textit{template}). Os CCS Concepts são opcionais e as palavras-chaves são obrigatórias (de 3 a 5). A submissão para avaliação do trabalho deve ser anonimizada, ou seja, os nomes dos autores, afiliações e qualquer outro texto que permita a identificação dos autores devem ser removidos para a revisão. Por favor, fique atento(a) para o número de páginas permitido na chamada de trabalhos.
+\end{abstract}
+
+%%%% PALAVRAS-CHAVE %%%%%%%%%%%%%%
+\keywords{Educação de computação, Brasil, EduComp} % germane load
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introdução}
+
+De acordo com \citet{bispo2020tecnologias}: 
+
+\begin{quote}
+Embora Informática na Educação (IE) e Educação de Computação (EC) partilhem muitos elementos metodológicos, epistemológicos, contextos de pesquisa e em alguns casos até objetivos de pesquisa convergentes, a EC distingue-se como área
+de pesquisa específica por sua \emph{raison d’être}: a busca do entendimento profundo de fenômenos complexos e processos envolvidos no ensino e aprendizado de computação \cite{malmi2019computing}. Além disso, enquanto as TEC e a IE pressupõem o emprego de um artefato tecnológico no processo de ensino e/ou aprendizagem, a EC pode utilizar-se ou não de tais artefatos para o ensino dos processos de computação. Assim como a Ciência da Computação ainda pode ser considerada uma ciência relativamente nova e em desenvolvimento, a EC ainda encontra-se em um estado de maturação \cite{malmi2019computing}. Ainda que a maioria das teorias utilizadas para o ensino de computação seja adaptada de outras áreas de tecnologia (como a engenharia, matemática ou ciências de forma geral), ou de teorias de educação ou psicologia da educação de forma mais ampla \cite{malmi2014theoretical}, já é possível observar o advento de teorias e práticas pedagógicas próprias \cite{malmi2019computing} com um crescente suporte empírico \cite{malmi2014theoretical}
+\end{quote}
+
+\lipsum[3-10]
+
+
+\section{Trabalhos Relacionados}
+
+\lipsum[1-5]
+
+
+\section{Métodos}
+
+\lipsum[5-10]
+
+
+\section{Resultados}
+
+\lipsum[7-14]
+
+
+\section{Discussão}
+
+\lipsum[20-27]
+
+
+\subsection{Limitações}
+
+\lipsum[27-29]
+
+
+\section{Conclusões}
+
+\lipsum[29-30]
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

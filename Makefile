@@ -21,9 +21,12 @@ ACMCPSAMPLES= \
 	samples/sample-acmcp-Research.pdf \
 	samples/sample-acmcp-Review.pdf \
 
+EDUCOMPCPSAMPLES= \
+	samples/sample-educompcp-paper.pdf
+
 all:  ${PDF} ALLSAMPLES
 
-%.pdf:  %.dtx   $(PACKAGE).cls
+%.pdf:  %.dtx $(PACKAGE).cls
 	pdflatex $<
 	- bibtex $*
 	pdflatex $<
@@ -56,7 +59,9 @@ samples/%: %
 	cp $^ samples
 
 
+
 samples/$(PACKAGE).cls: $(PACKAGE).cls
+samples/educomp.cls: educomp.cls
 samples/ACM-Reference-Format.bst: ACM-Reference-Format.bst
 
 samples/abbrev.bib: ACM-Reference-Format.bst
@@ -112,6 +117,15 @@ samples/sample-lualatex.pdf:  samples/sample-lualatex.tex   samples/$(PACKAGE).c
 
 samples/sample-acmcp.pdf: samples/acm-jdslogo.png
 
+samples/sample-educompcp%.pdf: samples/sample-educompcp%.tex samples/educomp.cls samples/ACM-Reference-Format.bst
+	cd $(dir $@) && pdflatex-dev $(notdir $<)
+	- cd $(dir $@) && bibtex $(notdir $(basename $<))
+	cd $(dir $@) && pdflatex-dev $(notdir $<)
+	cd $(dir $@) && pdflatex-dev $(notdir $<)
+	while ( grep -q '^LaTeX Warning: Label(s) may have changed' $(basename $<).log) \
+	  do cd $(dir $@) && pdflatex-dev $(notdir $<); done
+
+
 .PRECIOUS:  $(PACKAGE).cfg $(PACKAGE).cls
 
 docclean:
@@ -129,7 +143,12 @@ docclean:
 
 clean: docclean
 	$(RM)  $(PACKAGE).cls \
-	samples/*.tex
+	samples/sample-acm*.tex \
+	samples/sample-authordraft.tex \
+	samples/sample-lualatex*.tex \
+	samples/sample-manuscript.tex \
+	samples/sample-sig*.tex \
+	samples/sample-xelatex*.tex \
 
 distclean: clean
 	$(RM)  *.pdf samples/sample-*.pdf
@@ -161,5 +180,12 @@ samples/sample-acmcp.tex: samples/samples.ins samples/samples.dtx
 
 samples/sample-acmcp-%.tex: samples/sample-acmcp.tex samples/acm-jdslogo.png
 	sed 's/acmArticleType{Review}/acmArticleType{$*}/' $< > $@
+
+educomp.cls: acmart.cls
+	sed 's/acmart.cls/educomp.cls/' $< > $@
+
+educompcp.zip: ${EDUCOMPCPSAMPLES} acmart.cls
+	zip $@ $+
+
 
 .PHONY: all ALLSAMPLES docclean clean distclean archive zip
