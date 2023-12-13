@@ -184,7 +184,7 @@ samples/sample-acmcp-%.tex: samples/sample-acmcp.tex samples/acm-jdslogo.png
 educomp.cls: acmart.cls
 	sed 's/acmart.cls/educomp.cls/' $< > $@
 
-educompcp.zip: ${EDUCOMPCPSAMPLES} acmart.cls
+educompcp.zip: ${EDUCOMPCPSAMPLES} educomp.cls
 	zip $@ $+
 
 
